@@ -28,6 +28,7 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         <a class="btn btn-primary ms-2" href="{{ route('login') }}" role="button">Login</a>
+        <a class="btn btn-primary ms-2" href="{{ route('register') }}" role="button">Register</a>
       </form>
     </div>
   </div>

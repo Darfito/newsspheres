@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\CategoryController;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Validation\ValidatesRequests;

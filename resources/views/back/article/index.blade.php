@@ -2,7 +2,7 @@
 
 @section('content')
     
-<div class="panel-header bg-primary-gradient">
+<div class="panel-header" style="background-color: #041444">
 	<div class="page-inner py-5">
 		<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 		</div>
@@ -54,18 +54,16 @@
                                 <td>
                                     <img src="{{ asset('uploads/'. $row->media) }}" width="100">
                                 </td>
-                                <td>
-                                    <a href="{{ route('article.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
-
-                                    <form action="{{ route('article.destroy', $row->id) }}" method="post" class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </form>
-
-
-                                </td>
+                                    <td class="d-flex align-items-center p-0">
+                                        <a href="{{ route('article.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <form action="{{ route('article.destroy', $row->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                        </form>
+                                    </td>
                             </tr>
                             @empty
                             <tr>
