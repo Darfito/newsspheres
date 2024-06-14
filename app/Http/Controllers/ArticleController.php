@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Storage;
+
 
 class ArticleController extends Controller
 {
@@ -19,10 +21,32 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $article = Article::all();
+
+        $user = Auth::user();
+
+        if ($user === null) {
+            // Jika user tidak terotentikasi, lemparkan pesan error atau arahkan ke halaman login
+            return redirect()->route('login')->with('error', 'You need to login first.');
+        }
+
+        if ($user->role === 'admin') {
+            $article = Article::all();
+        } else {
+            $article = Article::where('user_id', Auth::id())->get();
+        }
+
         return view('back.article.index', [
             'article' => $article
         ]);
+    }
+
+    public function becomeAuthor(){
+        $user = User::find(Auth::id());
+        // Ubah role user menjadi author
+        $user->role = 'author';
+        $user->save();
+
+        return redirect()->route('article.create');
     }
 
     /**

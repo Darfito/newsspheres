@@ -1,5 +1,4 @@
-<link href="css/components/navbar.css" rel="stylesheet" />
-
+<link href="{{ asset('css/components/navbar.css') }}" rel="stylesheet" />
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
     <a class="navbar-brand text-light" href="#">
@@ -11,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+          <a class="nav-link active text-light" aria-current="page" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -24,12 +23,21 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <div class="d-flex">
+        {{-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> --}}
+        @guest
         <a class="btn btn-primary ms-2" href="{{ route('login') }}" role="button">Login</a>
         <a class="btn btn-primary ms-2" href="{{ route('register') }}" role="button">Register</a>
-      </form>
+      @endguest
+      </div>
+      @auth
+          <div class="profile">
+            <a href="{{ route('article.index') }}" role="button">
+              <img src="{{ asset('img/user-circle.svg') }}" alt="Img Profile">
+            </a>
+          </div>
+        @endauth
     </div>
   </div>
 </nav>

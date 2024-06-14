@@ -28,7 +28,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        if (auth()->user()->role === 'admin') {
+            return redirect()->intended(route('dashboard'));
+        }
+    
+
+        return redirect()->route('home')->withErrors(['message' => 'You do not have account.']);
     }
 
     /**

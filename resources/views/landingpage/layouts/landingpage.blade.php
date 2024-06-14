@@ -13,19 +13,9 @@
   </head>
   <body>
     @include('landingpage.includes.header')
-
-
-
       <div class="container">
         @yield('content')
       </div>
-
     @include('landingpage.includes.footer')
-
-
-
-            
-
-    
   </body>
 </html>

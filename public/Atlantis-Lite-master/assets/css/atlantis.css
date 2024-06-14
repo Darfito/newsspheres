@@ -2097,7 +2097,13 @@ body {
       border-radius: 0px; }
     .card .card-header .card-head-row, .card-light .card-header .card-head-row {
       display: flex;
-      align-items: center; }
+      align-items: center; 
+      /* justify-content: space-between; */
+    }
+      /* .card-head-row.artikel-button{
+        display: flex;
+        
+      } */
       .card .card-header .card-head-row .card-tools, .card-light .card-header .card-head-row .card-tools {
         margin-left: auto;
         float: right;

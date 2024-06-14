@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -11,7 +15,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('back.dashboard');
+        $artikelCount = Article::count();
+        $userCount = User::count();
+        $categoryCount = Kategori::count();
+        return view('back.dashboard', [
+            'categoryCount' => $categoryCount,
+            'userCount' => $userCount,
+            'artikelCount' => $artikelCount
+        ]);
     }
 
     /**

@@ -23,7 +23,7 @@
     <nav class="navbar navbar-header navbar-expand-lg" style="background-color: #041444"> 
         <div class="container-fluid">
             <div class="collapse" id="search-nav">
-                <form class="navbar-left navbar-form nav-search mr-md-3">
+                {{-- <form class="navbar-left navbar-form nav-search mr-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <button type="submit" class="btn btn-search pr-1">
@@ -32,7 +32,7 @@
                         </div>
                         <input type="text" placeholder="Search ..." class="form-control">
                     </div>
-                </form>
+                </form> --}}
             </div>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item toggle-nav-search hidden-caret">
@@ -92,7 +92,7 @@
                                     </a>
                                     <a href="#">
                                         <div class="notif-img"> 
-                                            <img src="../assets/img/talha.jpg" alt="Img Profile">
+                                            <img src="{{ asset('img/account.png') }}" alt="Img Profile">
                                         </div>
                                         <div class="notif-content">
                                             <span class="subject">Talha</span>
@@ -224,7 +224,7 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                            <img src="{{ asset('img/user-circle.svg') }}" alt="..." class="avatar-img rounded-circle">
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated fadeIn">
