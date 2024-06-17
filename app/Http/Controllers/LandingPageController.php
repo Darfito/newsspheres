@@ -10,26 +10,29 @@ class LandingPageController extends Controller
 {
     public function index()
     {
-        $category = Kategori::all();
-        $article = Article::all();
+        $categories = Kategori::all();
+        $articles = Article::all();
         $latestArticle = Article::orderBy('created_at', 'DESC')->take(3)->get();
-        return view('landingpage.home', [
-            'category' => $category,
-            'article' => $article,
-            'latestArticle' => $latestArticle
-        ]);
+        
+        return view('landingpage.home', compact('categories', 'articles', 'latestArticle'));
+    }
+
+    public function filterByCategory($slug)
+    {
+        $categories = Kategori::all();
+        $category = Kategori::where('slug', $slug)->firstOrFail();
+        $articles = Article::where('category_id', $category->id)->get();
+        $latestArticle = Article::orderBy('created_at', 'DESC')->take(3)->get();
+
+        return view('landingpage.home', compact('categories', 'articles', 'latestArticle'));
     }
 
     public function detail($slug)
     {
-        $category = Kategori::all();
-        $article = Article::where('slug', $slug)->first();
-        $postinganTerbaru = Article::orderBy('created_at', 'DESC')->limit('5')->get();
+        $categories = Kategori::all();
+        $article = Article::where('slug', $slug)->firstOrFail();
+        $postinganTerbaru = Article::orderBy('created_at', 'DESC')->limit(5)->get();
 
-        return view('landingpage.article.detail-article', [
-            'article' => $article,
-            'category' => $category,
-            'postinganTerbaru' => $postinganTerbaru
-        ]);
+        return view('landingpage.article.detail-article', compact('categories', 'article', 'postinganTerbaru'));
     }
 }

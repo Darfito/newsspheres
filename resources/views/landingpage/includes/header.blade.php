@@ -14,14 +14,14 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Kategori
+              Kategori
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            @foreach ($category as $cat)
-            <li><a class="dropdown-item" href="{{ $cat->slug }}">{{ $cat->name_category }}</a></li>
-            @endforeach
+              @foreach ($categories as $cat)
+                  <li><a class="dropdown-item" href="{{ route('category.show', $cat->slug) }}">{{ $cat->name_category }}</a></li>
+              @endforeach
           </ul>
-        </li>
+      </li>         
       </ul>
       <div class="d-flex">
         {{-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

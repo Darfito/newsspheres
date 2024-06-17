@@ -33,7 +33,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Log::info($request->all());
+        \Log::info($request->all());
         $this->validate($request, [
             'name_category' => 'required',
         ]);

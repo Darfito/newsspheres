@@ -25,7 +25,7 @@
             <div class="detail-sidebar-category">
                 <h4>Kategori</h4>
                 <hr>
-                @foreach ($category as $row)
+                @foreach ($categories as $row)
                 <div class="sidebar-kategori d-flex flex-wrap">
                     <a href="" style="text-decoration: none;">
                         <p>{{ $row->name_category }}</p>
