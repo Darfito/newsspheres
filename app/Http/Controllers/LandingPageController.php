@@ -12,9 +12,11 @@ class LandingPageController extends Controller
     {
         $category = Kategori::all();
         $article = Article::all();
+        $latestArticle = Article::orderBy('created_at', 'DESC')->take(3)->get();
         return view('landingpage.home', [
             'category' => $category,
-            'article' => $article
+            'article' => $article,
+            'latestArticle' => $latestArticle
         ]);
     }
 

@@ -71,12 +71,14 @@
                             <p>Artikel</p>
                         </a>
                     </li>
+                    @if(Auth::user()->role == 'admin')
                     <li class="nav-item" id="category">
                         <a style="text-decoration: none;" href="{{ route('category.index') }}">
                             <i class="fas fa-pen"></i>
                             <p>Category</p>
                         </a>
                     </li>
+                    @endif
                     <li class="nav-item" >
                             <a style="text-decoration: none;" href="{{ route('home') }}" >
                                 <i class="fa-solid fa-house"></i>

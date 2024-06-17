@@ -30,7 +30,7 @@
                     <a href="" style="text-decoration: none;">
                         <p>{{ $row->name_category }}</p>
                     </a>
-                    <p class="ml-auto text-right"> <span class="badge badge-dark">{{ $row->article->count() }}</span></p>
+                    <p class="ml-auto text-right"> <span class="text-black badge badge-dark">({{ $row->article->count() }})</span></p>
                 </div>
                 @endforeach
                 
