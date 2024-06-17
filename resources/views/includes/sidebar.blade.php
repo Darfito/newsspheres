@@ -18,7 +18,7 @@
             <div class="sidebar-content">
                 <div class="user">
                     <div class="avatar-sm float-left mr-2">
-                        <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                <img src="{{ asset('img/user-circle-blue.svg') }}" alt="..." class="avatar-img rounded-circle">
                     </div>
                     <div class="info">
                         <a style="text-decoration: none;" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -37,7 +37,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a style="text-decoration: none;" href="#edit">
+                                    <a style="text-decoration: none;" href="{{ route('profile.edit') }}">
                                         <span class="link-collapse">Edit Profile</span>
                                     </a>
                                 </li>
@@ -67,12 +67,18 @@
                     </li>
                     <li class="nav-item" id="article">
                         <a style="text-decoration: none;" href="{{ route('article.index') }}">
-                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-book"></i>
                             <p>Artikel</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                            <a style="text-decoration: none;" href="{{ route('home') }}" role='button' type="submit" class="btn btn-link">
+                    <li class="nav-item" id="category">
+                        <a style="text-decoration: none;" href="{{ route('category.index') }}">
+                            <i class="fas fa-pen"></i>
+                            <p>Category</p>
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                            <a style="text-decoration: none;" href="{{ route('home') }}" >
                                 <i class="fa-solid fa-house"></i>
                                 {{ __('Home') }}
                             </a>

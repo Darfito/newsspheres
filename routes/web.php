@@ -14,7 +14,7 @@ Route::get('/detail-article/{slug}',[LandingPageController::class,'detail'])->na
 
 Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/category',[CategoryController::class,'index'])->name('category.index');
+Route::get('/dashboard/category',[CategoryController::class,'index'])->name('category.index');
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
 Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
@@ -29,6 +29,8 @@ Route::get('/article/{id}/edit', [ArticleController::class, 'edit'])->name('arti
 Route::put('/article/{id}', [ArticleController::class, 'update'])->name('article.update');
 Route::delete('/article/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
 
+
+
 Route::get('/layout', function(){
     return view('landingpage.layouts.landingpage');
 });
@@ -39,9 +41,10 @@ Route::get('/layout', function(){
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile-edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile-edit', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile-edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

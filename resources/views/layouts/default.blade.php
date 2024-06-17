@@ -22,6 +22,7 @@
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="{{ asset('back//css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('back//css/atlantis.min.css') }}">
+	@vite(['resources/css/app.css', 'resources/js/app.js'])
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="{{ asset('back//css/demo.css') }}">
 </head>

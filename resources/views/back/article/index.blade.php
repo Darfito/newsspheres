@@ -17,7 +17,7 @@
                         <div class="d-flex justify-content-between card-head-row artikel-button">
                             <div class="card-title">Data Artikel</div>
                             <div class="button-action">
-                                @if(Auth::user()->role === 'author')
+                                @if(in_array(Auth::user()->role, ['admin', 'author']))
                                     <a role="button" class="btn btn-primary" href="{{ route('article.create') }}" class="btn btn-primary btn-sm ml-auto">+ Tambah</a>
                                 @else
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
